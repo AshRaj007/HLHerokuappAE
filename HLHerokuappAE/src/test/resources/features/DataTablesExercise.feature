@@ -1,6 +1,7 @@
 Feature: Data Table Sorting
 
   Background: To be on The Internet Herokuapp
+
     Given I am on Herokuapp website
 
 @table1test
@@ -33,6 +34,9 @@ Feature: Data Table Sorting
       | Conway | Tim   | tconway@earthlink.net | $50.00  | http://www.timconway.com |
       | Bach   | Frank | fbach@yahoo.com       | $51.00  | http://www.frank.com     |
       | Doe    | Jason | jdoe@hotmail.com      | $100.00 | http://www.jdoe.com      |
+
+    When I click on edit for user with first name "John"
+    Then the Edit page is displayed
 
 
 

@@ -4,13 +4,13 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/features"},
-        glue = {"stepDefinitions"},
-        tags = {"@table1test, @table2test"},
         plugin = {"html:target/cucumber-html-report",
                 "json:target/cucumber-json-report.json",
-                "pretty:target/cucumber-pretty-report.txt"
-        })
+                "pretty:target/cucumber-pretty-report.txt"},
+        features = {"src/test/resources/features"},
+        glue = {"stepDefinitions"},
+        tags = "@table1test"
+        )
 
 public class CucumberRunner {
 }

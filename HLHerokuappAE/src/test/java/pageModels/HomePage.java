@@ -9,6 +9,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePageFactory {
 
+    public HomePage() {
+        super();
+
+    }
 
     @FindBy(linkText = "Sortable Data Tables")
     WebElement sortableDataTablesOption;

@@ -7,7 +7,7 @@ import pageModels.HomePage;
 
 public class HomePageStepDefs {
 
-    HomePage homePage = new HomePage();
+     private HomePage homePage = new HomePage();
 
 
     @And("^I click on Sortable Data Tables$")

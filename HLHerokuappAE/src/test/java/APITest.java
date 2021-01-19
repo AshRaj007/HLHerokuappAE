@@ -15,7 +15,6 @@ public class APITest {
 
         request.put("name", "Ashika");
         request.put("job", "Senior Automation Tester");
-        System.out.println(request.toJSONString());
 
         given().
                 header("Content-Type", "application/json").
@@ -50,7 +49,6 @@ public class APITest {
 
         request.put("name", "Ash Raj");
         request.put("job", "Interior Designer");
-        System.out.println(request.toJSONString());
 
         given().
                 header("Content-Type", "application/json").

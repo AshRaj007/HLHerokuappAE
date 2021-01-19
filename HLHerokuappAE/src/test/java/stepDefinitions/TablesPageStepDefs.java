@@ -3,11 +3,13 @@ package stepDefinitions;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import pageModels.EditTablePage;
 import pageModels.TableSortingPage;
 
 public class TablesPageStepDefs {
 
-    TableSortingPage tableSortingPage = new TableSortingPage();
+    private TableSortingPage tableSortingPage = new TableSortingPage();
+    private EditTablePage editTablePage = new EditTablePage();
 
 
     @Then("^I can sort the table in \"([^\"]*)\" by \"([^\"]*)\"$")
@@ -31,6 +33,18 @@ public class TablesPageStepDefs {
     @And("^I click on Due to sort$")
     public void iClickOnDueToSort() throws Throwable {
         tableSortingPage.clickonDue();
+    }
+
+
+    @And("^I click on edit for user with first name \"([^\"]*)\"$")
+    public void iClickOnEditForUserWithFirstName(String firstName) throws Throwable {
+        tableSortingPage.clickOnEdit(firstName);
+    }
+
+    @Then("^the Edit page is displayed$")
+    public void theEditPageIsDisplayed() {
+        editTablePage.checkEditURL();
+
     }
 }
 

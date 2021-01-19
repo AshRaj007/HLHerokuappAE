@@ -20,6 +20,9 @@ public class TableSortingPage extends BasePageFactory {
     @FindBy(className = "dues")
     WebElement due;
 
+    @FindBy(xpath = "//table[@id='table2']")
+    WebElement table2;
+
     public void verifyTable(String orderValue, String headerNameValue) {
         getColumnNumber(headerNameValue);
         List<WebElement> tableRows = driver.findElements(By.cssSelector("#table1 tr td:nth-child(" + columnNumber + ")"));
@@ -90,8 +93,7 @@ public class TableSortingPage extends BasePageFactory {
 
     public void verifyTable2(DataTable dataTable) {
 
-        WebElement element = driver.findElement(By.xpath("//table[@id='table2']"));
-        List<WebElement> rowElements = element.findElements(By.xpath(".//tr"));
+        List<WebElement> rowElements = table2.findElements(By.xpath(".//tr"));
         rowElements.remove(0);
 
         List<List<String>> dataTableRows = dataTable.asLists(String.class);
@@ -116,5 +118,21 @@ public class TableSortingPage extends BasePageFactory {
 
     public void clickonDue() {
         due.click();
+    }
+
+    public void clickOnEdit(String firstName) {
+
+        List<WebElement> rows = table2.findElements(By.xpath("//*[@id=\"table2\"]/thead/tr/th[2]/span"));
+        int rowCount = rows.size();
+        String firstNameValue = driver.findElement(By.xpath("//*[@id='table2']/tbody/tr[" + rowCount + "]/td[2]")).getText();
+        if (firstNameValue.equals(firstName)) {
+            driver.findElement(By.xpath("//*[@id=\"table2\"]/tbody/tr[" + rowCount + "]/td[6]/a[1]")).click();
+            System.out.println("Found user " +firstName);
+
+        } else {
+            System.out.println(" Could not find first name " + firstName);
+
+        }
+
     }
 }
